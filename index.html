@@ -8,7 +8,6 @@
   <meta name="description" content="AI마음약국은 혼자 버틴 마음을 위한 따뜻한 위로와 감정 회복 공간입니다." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <!-- canonical/og/url은 아래 스크립트가 현재 도메인으로 자동 보정 -->
   <link rel="canonical" href="/" />
 
   <meta property="og:type" content="website" />
@@ -22,11 +21,12 @@
   <meta name="twitter:image" content="https://aimaeumyk.pages.dev/og-image.png" />
   <meta name="twitter:title" content="AI마음약국 | 혼자 버틴 마음을 위한 따뜻한 공간" />
   <meta name="twitter:description" content="아픈 게 아니라, 너무 오래 혼자 버텨온 마음일 수 있어요." />
- 
+
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#2f7a73" />
   <link rel="icon" href="https://aimaeumyk.pages.dev/icon-192.png" />
   <link rel="apple-touch-icon" href="/icon-192.png" />
+  <meta name="naver-site-verification" content="77673872d6979a0e7306f92b2d8c1859af002d7b" />
 
   <script type="application/ld+json">
   {
@@ -107,6 +107,9 @@
       cursor:pointer;
       font-weight:900;
       transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
     }
     .btn:hover{transform: translateY(-1px)}
     .btn:active{transform: translateY(0px); opacity:.92}
@@ -175,7 +178,13 @@
         radial-gradient(700px 340px at 0% 40%, rgba(47,122,115,.16) 0%, transparent 55%),
         linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
     }
-    .illTop{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;}
+    .illTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
     .illTitle{font-weight:900; letter-spacing:-.2px}
     .illSub{font-size:13px; color:var(--muted); font-weight:700}
     .svgBox{
@@ -228,7 +237,11 @@
       font-weight:900;
     }
 
-    .flow{display:grid; gap:14px; grid-template-columns: repeat(3, minmax(0,1fr));}
+    .flow{
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
     .step{padding:18px}
     .step .n{
       font-weight:900; font-size:12px;
@@ -264,11 +277,6 @@
       border:1px solid #cfe8e2;
     }
     .scorebar .row{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
-    .kbd{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size:12px; padding:2px 6px; border-radius:8px;
-      background:#fff; border:1px solid var(--line);
-    }
 
     textarea, input[type="text"]{
       width:100%;
@@ -308,18 +316,162 @@
       margin-top:12px;
     }
 
+    .diary-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .card-lite{
+      background:#fffdf9;
+      border:1px solid rgba(234,223,205,.95);
+      border-radius:18px;
+      padding:16px;
+    }
+    .calendar-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:14px;
+    }
+    .calendar-year{
+      font-size:14px;
+      color:var(--muted);
+      text-align:center;
+    }
+    .calendar-month{
+      font-size:28px;
+      font-weight:900;
+      letter-spacing:-.5px;
+      text-align:center;
+      line-height:1.1;
+      margin-top:2px;
+    }
+    .mini-btn{
+      border:1px solid var(--line);
+      background:#fff;
+      width:36px;
+      height:36px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:20px;
+      font-weight:900;
+    }
+    .calendar-weekdays,
+    .calendar-grid{
+      display:grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap:8px;
+    }
+    .calendar-weekdays div{
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+      padding-bottom:4px;
+    }
+    .calendar-day{
+      min-height:54px;
+      border:1px solid transparent;
+      border-radius:14px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:center;
+      padding-top:8px;
+      cursor:pointer;
+      background:#fff;
+      position:relative;
+    }
+    .calendar-day:hover{
+      border-color:var(--line);
+      background:#fffaf2;
+    }
+    .calendar-day.empty{
+      background:transparent;
+      cursor:default;
+      border:none;
+    }
+    .calendar-day.selected{
+      border-color:var(--accent);
+      background:#eef8f5;
+    }
+    .calendar-day .day-num{
+      font-size:14px;
+      font-weight:700;
+    }
+    .calendar-day .day-dot{
+      font-size:14px;
+      margin-top:4px;
+      line-height:1;
+      min-height:16px;
+    }
+    .selected-date-box{
+      padding:12px;
+      border-radius:14px;
+      background:#f6fbf9;
+      border:1px solid #cfe8e2;
+    }
+    .selected-date-label{
+      font-size:18px;
+      font-weight:800;
+      margin-top:4px;
+    }
+    .diary-select{
+      width:100%;
+      border:1px solid rgba(234,223,205,.95);
+      border-radius:16px;
+      padding:12px;
+      font-size:14px;
+      background:#fff;
+    }
+    .diary-list{
+      display:grid;
+      gap:12px;
+    }
+    .diary-entry{
+      border:1px dashed #e6dccb;
+      border-radius:16px;
+      padding:14px;
+      background:#fff;
+    }
+    .diary-entry-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .diary-entry-date{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .diary-entry-title{
+      font-size:17px;
+      font-weight:800;
+      margin-top:2px;
+    }
+    .diary-entry-text{
+      color:var(--ink);
+      white-space:pre-wrap;
+    }
+
+    .music-card{
+      margin-top:14px;
+    }
+
     @media (max-width: 880px){
       .hero{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
       .flow{grid-template-columns:1fr}
       .app{grid-template-columns:1fr}
+      .diary-wrap{grid-template-columns:1fr}
       .navlinks{display:none}
       .nav{padding:12px 16px}
       .wrap{padding:18px}
     }
   </style>
-<meta name="naver-site-verification" content="77673872d6979a0e7306f92b2d8c1859af002d7b" />
-
 </head>
 
 <body>
@@ -350,7 +502,6 @@
 
 <main class="wrap">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="card left">
       <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
@@ -383,7 +534,6 @@
       </div>
     </div>
 
-    <!-- Right -->
     <div class="card ill">
       <div class="illTop">
         <div>
@@ -394,7 +544,6 @@
       </div>
 
       <div class="svgBox" aria-hidden="true">
-        <!-- ✅ 사용자님의 SVG를 그대로 넣되, 여기 예시 SVG는 안전하게 포함 -->
         <svg viewBox="0 0 720 360" width="100%" height="auto" role="img" aria-label="작은 마을 약국 일러스트">
           <defs>
             <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
@@ -477,8 +626,8 @@
         <div class="pill">
           <div class="dot"></div>
           <div>
-            <b>비밀 이야기 공간</b>
-            <div class="muted">말하지 못했던 이야기를 조용히 적어요.</div>
+            <b>마음 일기장</b>
+            <div class="muted">날짜와 감정으로 오늘의 마음을 남겨요.</div>
           </div>
         </div>
         <div class="pill">
@@ -492,7 +641,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="section">
     <h2>AI 마음약국은 무엇을 하나요</h2>
     <div class="grid3">
@@ -506,11 +654,11 @@
       </div>
       <div class="card feature">
         <div style="display:flex; gap:10px; align-items:center;">
-          <div class="icon">🔐</div>
+          <div class="icon">📖</div>
           <span class="tag">02 · 기록</span>
         </div>
-        <h3>비밀 이야기를 안전하게 남겨요</h3>
-        <p>누구에게도 못 했던 이야기, 괜찮아요. 이 공간은 “정답”보다 “들어주는 자리”에 가까워요.</p>
+        <h3>비밀 이야기를 일기처럼 남겨요</h3>
+        <p>누구에게도 못 했던 이야기, 괜찮아요. 달력 위에 감정과 하루를 남기며 내 마음의 흐름을 조용히 볼 수 있어요.</p>
       </div>
       <div class="card feature">
         <div style="display:flex; gap:10px; align-items:center;">
@@ -523,7 +671,6 @@
     </div>
   </section>
 
-  <!-- FLOW -->
   <section class="section">
     <h2>이용 방법</h2>
     <div class="flow">
@@ -534,8 +681,8 @@
       </div>
       <div class="card step">
         <span class="n">STEP 2</span>
-        <h3>비밀 이야기 기록</h3>
-        <p>지금의 마음을 그대로 적어요. “정리되지 않은 글”이어도 괜찮아요. 나를 향한 첫 돌봄이니까요.</p>
+        <h3>마음 일기장 기록</h3>
+        <p>날짜를 누르고 오늘의 감정과 이야기를 남겨요. 혼자 적지만, 혼자만의 무게로 남겨두지 않아도 돼요.</p>
       </div>
       <div class="card step">
         <span class="n">STEP 3</span>
@@ -545,9 +692,7 @@
     </div>
   </section>
 
-  <!-- APP -->
   <section class="section app">
-    <!-- CHECK -->
     <div id="check" class="card panel">
       <h3>🧪 마음 상태 체크 (10가지)</h3>
       <p class="muted">오늘의 마음에 해당되는 항목을 골라보세요. (복수 선택 가능)</p>
@@ -559,7 +704,7 @@
           <div><b>선택 개수:</b> <span id="pickedCount">0</span> / 10</div>
           <div class="muted">팁: 저장은 자동(브라우저)</div>
         </div>
-        <div class="rowBtns" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+        <div class="rowBtns" style="margin-top:10px;">
           <button class="btn" id="btnAnalyze" type="button">결과 만들기</button>
           <button class="btn" id="btnReset" type="button">초기화</button>
         </div>
@@ -568,31 +713,82 @@
       <div class="result" id="checkResult" style="display:none;"></div>
     </div>
 
-    <!-- SECRET -->
     <div id="secret" class="card panel">
-      <h3>🔐 비밀 이야기 공간</h3>
-      <p class="muted">여기에 적는 글은 이 브라우저에만 저장돼요. 누가 읽을까 걱정하지 않아도 돼요.</p>
+      <h3>📖 비밀 이야기 공간 · 마음 일기장</h3>
+      <p class="muted">
+        혼자 말하지만, 혼자가 아닌 공간이에요.<br/>
+        날짜를 누르고 오늘의 감정을 남겨보세요.
+      </p>
 
-      <label class="muted" for="title">제목(선택)</label>
-      <input id="title" type="text" placeholder="예: 오늘은 아무 말도 하기 싫었다" />
+      <div class="diary-wrap">
+        <div class="diary-calendar card-lite">
+          <div class="calendar-head">
+            <button class="mini-btn" type="button" id="prevMonth">‹</button>
+            <div>
+              <div id="calendarYear" class="calendar-year"></div>
+              <div id="calendarMonth" class="calendar-month"></div>
+            </div>
+            <button class="mini-btn" type="button" id="nextMonth">›</button>
+          </div>
 
-      <div style="height:10px"></div>
+          <div class="calendar-weekdays">
+            <div>일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div>
+          </div>
+          <div id="calendarGrid" class="calendar-grid"></div>
+        </div>
 
-      <label class="muted" for="story">비밀 이야기</label>
-      <textarea id="story" placeholder="정리되지 않아도 괜찮아요. 그냥 그대로 적어도 돼요."></textarea>
+        <div class="diary-editor card-lite">
+          <div class="selected-date-box">
+            <div class="muted">선택한 날짜</div>
+            <div id="selectedDateLabel" class="selected-date-label">날짜를 선택해 주세요</div>
+          </div>
 
-      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <button class="btn primary" id="btnSave" type="button">저장하기</button>
-        <button class="btn" id="btnClearStory" type="button">기록 지우기</button>
+          <div style="height:12px;"></div>
+
+          <label class="muted" for="emotionSelect">오늘의 감정</label>
+          <select id="emotionSelect" class="diary-select">
+            <option value="🌿">🌿 평온</option>
+            <option value="💛">💛 괜찮음</option>
+            <option value="💙">💙 우울함</option>
+            <option value="💜">💜 복잡함</option>
+            <option value="❤️">❤️ 위로가 필요함</option>
+            <option value="🩶">🩶 무기력</option>
+          </select>
+
+          <div style="height:12px;"></div>
+
+          <label class="muted" for="diaryTitle">제목</label>
+          <input id="diaryTitle" type="text" placeholder="예: 오늘도 잘 버텼다" />
+
+          <div style="height:12px;"></div>
+
+          <label class="muted" for="diaryText">비밀 이야기</label>
+          <textarea id="diaryText" placeholder="정리되지 않아도 괜찮아요. 그냥 그대로 적어도 돼요."></textarea>
+
+          <div class="rowBtns">
+            <button class="btn primary" type="button" id="saveDiaryBtn">기록 남기기</button>
+            <button class="btn" type="button" id="deleteDiaryBtn">선택 날짜 기록 지우기</button>
+          </div>
+
+          <div id="diaryMessage" class="result" style="display:none;"></div>
+        </div>
       </div>
 
-      <div class="result" id="storyResult" style="display:none;"></div>
+      <div style="height:18px;"></div>
+
+      <div class="card-lite diary-list-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+          <h4 style="margin:0;">쌓인 마음 기록</h4>
+          <div class="muted" style="font-size:13px;">최근 기록부터 보여줘요</div>
+        </div>
+        <div id="diaryList" class="diary-list" style="margin-top:14px;"></div>
+      </div>
     </div>
   </section>
 
-  <!-- RX -->
   <section id="rx" class="section">
     <h2>💊 회복 루트 처방전</h2>
+
     <div class="card panel">
       <p class="muted">
         체크 결과와 기록을 바탕으로 “오늘의 처방전”을 만들어봐요.
@@ -609,9 +805,36 @@
         <b>확장 아이디어</b> · 처방전 PDF 저장, 30일/90일 루틴 키트, 전자책 챕터 자동 추천으로 연결 가능.
       </div>
     </div>
+
+    <div class="card panel music-card">
+      <h3>🎵 유튜브 마음선곡</h3>
+      <p class="muted">
+        오늘의 마음에 맞는 음악이 필요할 때, 조용히 머물 수 있는 선곡 공간으로 연결돼요.<br/>
+        마음을 다그치지 않고, 조금 천천히 쉬어갈 수 있도록 준비한 음악들이에요.
+      </p>
+
+      <div class="quote" style="margin-top:12px;">
+        “오늘의 마음을 위한 음악 처방이 준비되어 있어요.”
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+        <a
+          href="https://youtube.com/@on-maeum?si=XWzUdA_LMw741cDQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn primary"
+          style="text-decoration:none;"
+        >
+          마음선곡 들으러 가기
+        </a>
+      </div>
+
+      <div class="fine">
+        오늘의 위로가 글로는 부족한 날엔, 음악이 먼저 마음에 닿을 수도 있어요.
+      </div>
+    </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="section">
     <h2>FAQ</h2>
     <div style="display:grid; gap:10px;">
@@ -645,21 +868,26 @@
 </main>
 
 <script>
-  // ---- SEO URL auto-fix (현재 도메인으로 canonical/og/url/ldjson 보정) ----
   (function() {
     const origin = location.origin;
-    const set = (sel, attr, v) => { const el=document.querySelector(sel); if(el) el.setAttribute(attr, v); };
+    const set = (sel, attr, v) => {
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute(attr, v);
+    };
     set('link[rel="canonical"]','href', origin + '/');
     set('meta[property="og:url"]','content', origin + '/');
     set('meta[property="og:image"]','content', origin + '/og-image.png');
     set('meta[name="twitter:image"]','content', origin + '/og-image.png');
     const ld = document.querySelector('script[type="application/ld+json"]');
     if(ld){
-      try{ const d=JSON.parse(ld.textContent); d.url = origin + '/'; ld.textContent = JSON.stringify(d); }catch(e){}
+      try{
+        const d = JSON.parse(ld.textContent);
+        d.url = origin + '/';
+        ld.textContent = JSON.stringify(d);
+      }catch(e){}
     }
   })();
 
-  // ---------- Helpers ----------
   const $ = (sel) => document.querySelector(sel);
   const escapeHtml = (s) => (s ?? "").replace(/[&<>"']/g, (m) => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
@@ -678,7 +906,6 @@
     }
   });
 
-  // ---------- Data ----------
   const STATES = [
     { key:"fatigue", label:"계속 지치고 무기력함" },
     { key:"anx", label:"이유 없는 불안" },
@@ -743,7 +970,6 @@
     }
   };
 
-  // ---------- Logic ----------
   function inferRoute(picked){
     const p = new Set(picked);
     if(p.has("messy") || p.has("selfblame") || p.has("past")) return "질문";
@@ -761,26 +987,16 @@
     return { code:"회복 우선", desc:"지금은 성과보다 회복을 먼저 두는 것이 안전한 상태" };
   }
 
-  function summarizeStory(text){
-    const t = (text || "").trim();
-    if(!t) return null;
-    const first = t.split(/\n+/).join(" ").slice(0, 120);
-    const emotions = [];
-    const dict = ["불안","걱정","무기력","지침","외로","짜증","분노","슬픨","눈물","죄책","후회","답답","막막"];
-    for(const k of dict){
-      if(t.includes(k) && emotions.length < 5) emotions.push(k);
-    }
-    return { preview:first + (t.length>120 ? "…" : ""), emotions };
-  }
-
-  // ---------- Storage ----------
   const STORAGE_KEY = "ai_maeum_pharmacy_v1";
+  const DIARY_KEY = "ai_maeum_diary_v1";
 
   function loadState(){
     try{
       const raw = localStorage.getItem(STORAGE_KEY);
       return raw ? JSON.parse(raw) : {};
-    }catch(e){ return {}; }
+    }catch(e){
+      return {};
+    }
   }
   function saveState(next){
     localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
@@ -793,14 +1009,11 @@
   function persist(){
     const st = loadState();
     st.picked = getPicked();
-    st.title = $("#title").value;
-    st.story = $("#story").value;
     st.updatedAt = new Date().toISOString();
     saveState(st);
     return st;
   }
 
-  // ---------- Checklist UI ----------
   function renderChecklist(){
     const root = $("#checklist");
     root.innerHTML = "";
@@ -828,11 +1041,10 @@
     $("#pickedCount").textContent = String(getPicked().length);
   }
 
-  // ---------- Results ----------
   function renderCheckResult(picked){
     const {code, desc} = inferMindCode(picked);
     const routeKey = inferRoute(picked);
-    const labels = picked.map(k => STATES.find(s => s.key===k)?.label).filter(Boolean);
+    const labels = picked.map(k => STATES.find(s => s.key === k)?.label).filter(Boolean);
 
     const box = $("#checkResult");
     box.style.display = "block";
@@ -841,29 +1053,29 @@
       <div class="muted">${escapeHtml(desc)}</div>
       <div style="height:10px"></div>
       <b>선택한 상태</b>
-      <ul>${labels.length ? labels.map(x=>`<li>${escapeHtml(x)}</li>`).join("") : `<li class="muted">아직 선택한 항목이 없어요. 천천히 골라도 괜찮아요.</li>`}</ul>
+      <ul>${labels.length ? labels.map(x => `<li>${escapeHtml(x)}</li>`).join("") : `<li class="muted">아직 선택한 항목이 없어요. 천천히 골라도 괜찮아요.</li>`}</ul>
       <div style="height:10px"></div>
       <b>추천 회복 루트</b>
       <div class="muted">${escapeHtml(ROUTES[routeKey].name)}</div>
     `;
   }
 
-  function renderStoryResult(){
-    const s = summarizeStory($("#story").value);
-    const box = $("#storyResult");
+  function getLatestDiaryText(){
+    const data = loadDiaryData();
+    const items = Object.values(data).sort((a,b)=> b.date.localeCompare(a.date));
+    return items.length ? items[0].text : "";
+  }
 
-    if(!s){
-      box.style.display = "none";
-      return;
+  function summarizeStory(text){
+    const t = (text || "").trim();
+    if(!t) return null;
+    const first = t.split(/\n+/).join(" ").slice(0, 120);
+    const emotions = [];
+    const dict = ["불안","걱정","무기력","지침","외로","짜증","분노","슬픔","눈물","죄책","후회","답답","막막"];
+    for(const k of dict){
+      if(t.includes(k) && emotions.length < 5) emotions.push(k);
     }
-    box.style.display = "block";
-    box.innerHTML = `
-      <h4>오늘의 기록 요약(가볍게)</h4>
-      <div class="muted">${escapeHtml(s.preview)}</div>
-      <div style="height:10px"></div>
-      <b>감정 키워드(추정)</b>
-      <div class="muted">${s.emotions.length ? s.emotions.map(e=>`#${escapeHtml(e)}`).join("  ") : "아직 뚜렷한 키워드가 없어도 괜찮아요."}</div>
-    `;
+    return { preview:first + (t.length>120 ? "…" : ""), emotions };
   }
 
   function buildRx(){
@@ -873,9 +1085,8 @@
     const route = ROUTES[routeKey];
 
     const mind = inferMindCode(picked);
-    const title = (st.title || "").trim();
-    const story = (st.story || "").trim();
-    const storyHint = story ? summarizeStory(story) : null;
+    const latestDiary = getLatestDiaryText();
+    const storyHint = latestDiary ? summarizeStory(latestDiary) : null;
 
     const rxBox = $("#rxResult");
     rxBox.style.display = "block";
@@ -883,8 +1094,7 @@
       <h4>🧾 오늘의 마음 처방전</h4>
       <div class="muted"><b>마음 코드:</b> ${escapeHtml(mind.code)} · ${escapeHtml(mind.desc)}</div>
       <div class="muted"><b>추천 루트:</b> ${escapeHtml(route.name)}</div>
-      ${title ? `<div style="margin-top:6px" class="muted"><b>기록 제목:</b> ${escapeHtml(title)}</div>` : ``}
-      ${storyHint ? `<div style="margin-top:6px" class="muted"><b>감정 키워드:</b> ${storyHint.emotions.length ? storyHint.emotions.map(e=>`#${escapeHtml(e)}`).join(" ") : "—"}</div>` : ``}
+      ${storyHint ? `<div style="margin-top:6px" class="muted"><b>최근 기록 키워드:</b> ${storyHint.emotions.length ? storyHint.emotions.map(e=>`#${escapeHtml(e)}`).join(" ") : "—"}</div>` : ``}
       <div style="height:12px"></div>
       <b>오늘의 질문 3개</b>
       <ul>${route.qs.map(q=>`<li>${escapeHtml(q)}</li>`).join("")}</ul>
@@ -918,7 +1128,213 @@
     });
   }
 
-  // ---------- Events ----------
+  function loadDiaryData(){
+    try{
+      return JSON.parse(localStorage.getItem(DIARY_KEY) || "{}");
+    }catch(e){
+      return {};
+    }
+  }
+
+  function saveDiaryData(data){
+    localStorage.setItem(DIARY_KEY, JSON.stringify(data));
+  }
+
+  let calendarDate = new Date();
+  let selectedDate = formatDateKey(new Date());
+
+  function formatDateKey(date){
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function formatDateLabel(dateKey){
+    const [y, m, d] = dateKey.split("-");
+    return `${y}년 ${Number(m)}월 ${Number(d)}일`;
+  }
+
+  function getEmotionMark(dateKey){
+    const data = loadDiaryData();
+    return data[dateKey]?.emotion || "";
+  }
+
+  function renderCalendar(){
+    const yearEl = document.getElementById("calendarYear");
+    const monthEl = document.getElementById("calendarMonth");
+    const gridEl = document.getElementById("calendarGrid");
+
+    if(!yearEl || !monthEl || !gridEl) return;
+
+    const year = calendarDate.getFullYear();
+    const month = calendarDate.getMonth();
+
+    yearEl.textContent = year;
+    monthEl.textContent = `${month + 1}월`;
+
+    gridEl.innerHTML = "";
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDate = new Date(year, month + 1, 0).getDate();
+
+    for(let i = 0; i < firstDay; i++){
+      const empty = document.createElement("div");
+      empty.className = "calendar-day empty";
+      gridEl.appendChild(empty);
+    }
+
+    for(let day = 1; day <= lastDate; day++){
+      const dateObj = new Date(year, month, day);
+      const dateKey = formatDateKey(dateObj);
+      const emotion = getEmotionMark(dateKey);
+
+      const dayEl = document.createElement("button");
+      dayEl.type = "button";
+      dayEl.className = "calendar-day";
+      if(dateKey === selectedDate) dayEl.classList.add("selected");
+
+      dayEl.innerHTML = `
+        <div class="day-num">${day}</div>
+        <div class="day-dot">${emotion ? emotion : ""}</div>
+      `;
+
+      dayEl.addEventListener("click", ()=>{
+        selectedDate = dateKey;
+        renderCalendar();
+        loadDiaryToEditor(dateKey);
+      });
+
+      gridEl.appendChild(dayEl);
+    }
+  }
+
+  function loadDiaryToEditor(dateKey){
+    const data = loadDiaryData();
+    const item = data[dateKey];
+
+    document.getElementById("selectedDateLabel").textContent = formatDateLabel(dateKey);
+    document.getElementById("diaryTitle").value = item?.title || "";
+    document.getElementById("diaryText").value = item?.text || "";
+    document.getElementById("emotionSelect").value = item?.emotion || "🌿";
+  }
+
+  function saveDiaryEntry(){
+    if(!selectedDate){
+      alert("날짜를 먼저 선택해 주세요.");
+      return;
+    }
+
+    const title = document.getElementById("diaryTitle").value.trim();
+    const text = document.getElementById("diaryText").value.trim();
+    const emotion = document.getElementById("emotionSelect").value;
+
+    if(!text){
+      alert("비밀 이야기를 적어주세요.");
+      return;
+    }
+
+    const data = loadDiaryData();
+    data[selectedDate] = {
+      date: selectedDate,
+      title: title || "제목 없는 기록",
+      text,
+      emotion,
+      updatedAt: new Date().toISOString()
+    };
+    saveDiaryData(data);
+
+    renderCalendar();
+    renderDiaryList();
+
+    const msg = document.getElementById("diaryMessage");
+    msg.style.display = "block";
+    msg.innerHTML = `
+      <h4>잘 들었어요.</h4>
+      <div class="muted">오늘의 이야기는 여기서 조용히 머물게 둘게요. 당신은 혼자가 아니에요.</div>
+    `;
+  }
+
+  function deleteDiaryEntry(){
+    if(!selectedDate){
+      alert("날짜를 먼저 선택해 주세요.");
+      return;
+    }
+
+    const data = loadDiaryData();
+    if(!data[selectedDate]){
+      alert("이 날짜에는 아직 기록이 없어요.");
+      return;
+    }
+
+    if(!confirm("이 날짜의 기록을 지울까요?")) return;
+
+    delete data[selectedDate];
+    saveDiaryData(data);
+
+    document.getElementById("diaryTitle").value = "";
+    document.getElementById("diaryText").value = "";
+    document.getElementById("emotionSelect").value = "🌿";
+
+    renderCalendar();
+    renderDiaryList();
+
+    const msg = document.getElementById("diaryMessage");
+    msg.style.display = "block";
+    msg.innerHTML = `
+      <h4>기록을 지웠어요.</h4>
+      <div class="muted">필요할 때 다시 천천히 남겨도 괜찮아요.</div>
+    `;
+  }
+
+  function renderDiaryList(){
+    const listEl = document.getElementById("diaryList");
+    if(!listEl) return;
+
+    const data = loadDiaryData();
+    const items = Object.values(data).sort((a,b)=> b.date.localeCompare(a.date));
+
+    if(items.length === 0){
+      listEl.innerHTML = `<div class="muted">아직 기록이 없어요. 오늘의 마음을 처음 남겨보세요.</div>`;
+      return;
+    }
+
+    listEl.innerHTML = items.map(item => `
+      <div class="diary-entry">
+        <div class="diary-entry-top">
+          <div>
+            <div class="diary-entry-date">${formatDateLabel(item.date)}</div>
+            <div class="diary-entry-title">${item.emotion} ${escapeHtml(item.title)}</div>
+          </div>
+        </div>
+        <div class="diary-entry-text">${escapeHtml(item.text)}</div>
+      </div>
+    `).join("");
+  }
+
+  function initDiaryCalendar(){
+    if(!document.getElementById("calendarGrid")) return;
+
+    document.getElementById("prevMonth").addEventListener("click", ()=>{
+      calendarDate = new Date(calendarDate.getFullYear(), calendarDate.getMonth() - 1, 1);
+      renderCalendar();
+    });
+
+    document.getElementById("nextMonth").addEventListener("click", ()=>{
+      calendarDate = new Date(calendarDate.getFullYear(), calendarDate.getMonth() + 1, 1);
+      renderCalendar();
+    });
+
+    document.getElementById("saveDiaryBtn").addEventListener("click", saveDiaryEntry);
+    document.getElementById("deleteDiaryBtn").addEventListener("click", deleteDiaryEntry);
+
+    document.getElementById("selectedDateLabel").textContent = formatDateLabel(selectedDate);
+
+    renderCalendar();
+    loadDiaryToEditor(selectedDate);
+    renderDiaryList();
+  }
+
   document.addEventListener("change", (e)=>{
     if(e.target && e.target.matches('#checklist input[type="checkbox"]')){
       updateCount();
@@ -933,28 +1349,12 @@
   });
 
   $("#btnReset").addEventListener("click", ()=>{
-    document.querySelectorAll('#checklist input[type="checkbox"]').forEach(x=> x.checked=false);
+    document.querySelectorAll('#checklist input[type="checkbox"]').forEach(x => x.checked = false);
     updateCount();
     const st = loadState();
     st.picked = [];
     saveState(st);
     $("#checkResult").style.display = "none";
-  });
-
-  $("#btnSave").addEventListener("click", ()=>{
-    persist();
-    renderStoryResult();
-    alert("저장했어요. (이 브라우저에만 저장됩니다)");
-  });
-
-  $("#btnClearStory").addEventListener("click", ()=>{
-    if(!confirm("기록을 지울까요? (브라우저 저장 기록도 함께 삭제됩니다)")) return;
-    $("#title").value = "";
-    $("#story").value = "";
-    const st = loadState();
-    st.title = ""; st.story = "";
-    saveState(st);
-    renderStoryResult();
   });
 
   $("#btnRx").addEventListener("click", ()=>{
@@ -973,46 +1373,26 @@
       x.checked = picked.includes(x.dataset.key);
     });
     updateCount();
-    $("#title").value = st.title ?? "";
-    $("#story").value = st.story ?? "";
     if(picked.length) renderCheckResult(picked);
-    renderStoryResult();
+    renderCalendar();
+    renderDiaryList();
+    loadDiaryToEditor(selectedDate);
     alert("저장된 기록을 불러왔어요.");
   });
 
-  // live preview for story
-  let storyTimer = null;
-  $("#story").addEventListener("input", ()=>{
-    clearTimeout(storyTimer);
-    storyTimer = setTimeout(()=>{
-      persist();
-      renderStoryResult();
-    }, 500);
-  });
-  $("#title").addEventListener("input", ()=> persist());
-
-  // init
   $("#year").textContent = new Date().getFullYear();
   renderChecklist();
+  initDiaryCalendar();
 
-  // auto-load quietly
   (function(){
     const st = loadState();
-    $("#title").value = st.title ?? "";
-    $("#story").value = st.story ?? "";
-
     const picked = st.picked ?? [];
     document.querySelectorAll('#checklist input[type="checkbox"]').forEach(x=>{
       x.checked = picked.includes(x.dataset.key);
     });
     updateCount();
-
     if(picked.length) renderCheckResult(picked);
-    renderStoryResult();
   })();
 </script>
 </body>
 </html>
-
-
-
